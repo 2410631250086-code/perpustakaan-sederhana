@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
 {
-    protected $fillable = ['name', 'email', 'phone', 'address'];
+    use HasFactory;
+    protected $fillable = ['name', 'phone', 'address'];
+
+    public function borrowings() {
+        return $this->hasMany(borrowing::class);
+    }
 }
